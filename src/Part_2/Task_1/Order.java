@@ -1,28 +1,46 @@
 package Part_2.Task_1;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
     private String customerName;
-    private List<String> items;
+    private List<Item> items;
     private double totalPrice;
-    public Order(String customerName, List<String> items) {
+    public Order(String customerName, List<Item> items) {
         this.customerName = customerName;
         this.items = items;
         this.totalPrice = calculateTotalPrice();
     }
-    public void processOrder() {
-        // Багато коду для обробки замовлення
-        // Цей метод став дуже довгим і складним для розуміння
+
+    public String getCustomerName() {
+        return customerName;
     }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public List<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Item> items) {
+        this.items = items;
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
     private double calculateTotalPrice() {
         double price = 0.0;
-        for (String item : items) {
-            // Логіка для розрахунку ціни кожного товару
-            // Додати до загальної ціни
+        for (Item item : items) {
+            price += item.getPrice();
         }
         return price;
     }
-    // Багато інших методів, які опрацьовують замовлення
 }
